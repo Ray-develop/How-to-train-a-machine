@@ -249,7 +249,6 @@ model_kmeans.fit(X_scaled)
 
 ```python
 clusters = model_kmeans.labels_
-print("Clústers assignats:", clusters)
 ```
 
 **Evaluar el model:**
@@ -260,7 +259,7 @@ Com que no supervisat no té etiquetes, s'utilitza el **Silhouette Score** per m
 from sklearn.metrics import silhouette_score
 
 score = silhouette_score(X_scaled, clusters)
-print(f"Silhouette Score: {score:.4f}")
+print(f"Silhouette Acurracy: {score*100:.4f}")
 ```
 
 **Comparar clústers amb les etiquetes reals:**
