@@ -326,3 +326,67 @@ print(f"Silhouette Score (Pipeline PCA+KMeans): {silhouette_score(X_scaled, labe
 ```
 
 ---
+# Reconeixement  de imatges
+
+El reconeixement d'imatges és una branca de la intel·ligència artificial i el machine learning que permet als ordinadors i dispositius identificar i processar objectes, persones, llocs o característiques en imatges i vídeos.
+
+El procés es basa en l'entrenament de models amb grans volums de dades (imatges etiquetades).
+
+- **Aprenentatge automàtic (Machine Learning):** S'utilitzen algoritmes per entrenar el model.
+- **Deep Learning (Aprenentatge Profund):** És el mètode més utilitzat actualment, especialment les Xarxes Neuronals Convolucionals (CNN), que imiten el cervell humà per detectar característiques complexes.
+## Exemple SVM
+
+**Importar llibreries:**
+```python
+from sklearn.datasets import load_digits
+```
+**Definir dataset:**
+```python
+digits = load_digits()
+```
+**Tranformar el 8x8 en 64 numeros:**
+
+Abans: (1797, 8, 8)
+
+Desprès: (1797, 64)
+
+```python
+n_samples = len(digits.images)
+data = digits.images.reshape((n_samples, -1))
+```
+**Definir les variables:**
+```python
+X = digits.data
+y = digits.target
+```
+**Dividir tran i test:**
+```python
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, shuffle=False) 
+```
+**Importar algoritme i definir-lo:**
+```python
+from sklearn import svm
+img = svm.SVC(gamma=0.001)
+```
+
+**Entrenament:**
+```python
+img.fit(X_train, y_train)
+```
+**Fer prediccions:**
+```python
+pred_img = img.predict(X_test)
+```
+**Calcular precentatge de acert:**
+
+```python
+from sklearn.metrics import accuracy_score
+
+acc_img = accuracy_score(y_test, pred_img)
+
+print("Accuracy score:", acc_img*100)
+```
+
+
