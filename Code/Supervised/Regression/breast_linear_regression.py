@@ -1,6 +1,6 @@
 from sklearn.datasets import load_breast_cancer
 import pandas as pd
-
+import numpy as np
 breast_cancer = load_breast_cancer()
 
 X = breast_cancer.data
