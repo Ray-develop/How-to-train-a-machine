@@ -6,6 +6,9 @@ Un problema de machine learning considera un conjunt indeterminat de dades origi
 
 - **Algoritmes no supervisats**: Dins del model no supervisat, la màquina no rep dades etiquetades, sinó que haurà d'aprendre els patrons per si mateixa sense saber què és què.
 
+# Normalitzar dades
+
+La normalització és un procés bàsic que tot científic de dades necessita conèixer. Ja que això ens permet tenir totes les nostres variables numèriques en una sola escala, que normalment va de 0 a 1. Això ens ajuda a posteriorment realitzar comparacions o aplicar algorismes de Machine Learning.
 ---
 
 # Algoritmes supervisats
