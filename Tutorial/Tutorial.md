@@ -5,27 +5,82 @@ Un problema de machine learning considera un conjunt indeterminat de dades origi
 - **Algoritmes supervisats**: Amb el model supervisat, la màquina aprèn per l'exemple. A partir de dades amb les respostes correctes que l'operador la entrena, la màquina aprèn els patrons que les relacionen.
 
 - **Algoritmes no supervisats**: Dins del model no supervisat, la màquina no rep dades etiquetades, sinó que haurà d'aprendre els patrons per si mateixa sense saber què és què.
-
+---
 # Normalitzar dades
 
+**Que és?** 
 La normalització és un procés bàsic que tot científic de dades necessita conèixer. Ja que això ens permet tenir totes les nostres variables numèriques en una sola escala, que normalment va de 0 a 1. Això ens ajuda a posteriorment realitzar comparacions o aplicar algorismes de Machine Learning.
+
+## Exemple Codi Normalitzat
+**Importar llibreries:**
+```python
+from sklearn.datasets import load_breast_cancer
+import pandas as pd
+import numpy as np
+```
+**Definir dataset:**
+```python
+breast_cancer = load_breast_cancer()
+```
+**Definir variables:**
+```python
+X = breast_cancer.data
+y = breast_cancer.target
+```
+**Dividir train i test:**
+```python
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+```
+**Normalitzar varibles entre 0 i 1:**
+```python
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+X_norm_train = scaler.fit_transform(X_train)
+X_norm_test = scaler.fit(X_test)
+```
+**Importar i entrenar l'algoritme:**
+```python
+from sklearn.linear_model import LinearRegression
+
+model_linear = LinearRegression()
+model_linear.fit(X_train, y_train)
+```
+**Fer les prediccions:**
+```python
+prediction_linear = model_linear.predict(X_test)
+```
+**Calcular el coeficient R2:**
+```python
+from sklearn.metrics import r2_score
+r2 = r2_score(y_test, prediction_linear)
+
+print(f"Coeficient R2: {r2:.4f}")
+```
+**Fer la matriu:**
+```python
+pred_binary = np.where(prediction_linear >= 0.5, 1, 0)
+
+from sklearn.metrics import confusion_matrix
+
+print("\nMatriu de Confusió (Regresió Lineal):")
+print(confusion_matrix(y_test, pred_binary))
+```
 ---
-
-# Algoritmes supervisats
-
+# Algoritmes Supevisats
 Dins dels algoritmes supervisats, existeixen altres subtipus:
 
 - **Regressió (Regression)**: Si el resultat consisteix en una o més variables continues, aquesta tasca es diu regressió. Per exemple, predir la longitud d'un peix en funció de la seva edat i pes. Els models dins de Regression són: linear regression, support vector regression i decision tree regression.
 
 - **Classificació (Classification)**: Les dades donades tenen més d'una classe i el que volem aprendre, a partir de dades etiquetades, és com predir altres dades sense etiquetar, i aquesta màquina intentarà classificar-les amb la categoria o classe correcta. Els models dins de Classification són: logistic regression, decision trees, random forests, support vector machines (*SVMs*) i gradient boosting.
 
----
 
 ## Exemple Regressió (LinearRegression)
 
 **Importar llibreries:**
 
-Primer de tot, s'ha d'importar les llibreries que s'utilitzaran i el dataset per part de sklearn.
+Primer de tot, se ha d'importar les llibreries que se utilitzaran i el dataset per part de sklearn.
 
 ```python
 from sklearn.datasets import load_breast_cancer
@@ -199,7 +254,7 @@ Dins dels algoritmes no supervisats, la màquina no rep dades etiquetades. Els s
 - **Clustering**: Agrupar dades similars sense saber les categories prèviament. Els models principals són **K-Means**, **DBSCAN** i **Hierarchical Clustering**.
 - **Reducció de dimensionalitat**: Reduir el nombre de variables mantenint la màxima informació possible. El model principal és **PCA (Principal Component Analysis)**.
 
----
+
 
 ## Exemple Clustering (K-Means)
 
