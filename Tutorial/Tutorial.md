@@ -6,6 +6,24 @@ Un problema de machine learning considera un conjunt indeterminat de dades origi
 
 - **Algoritmes no supervisats**: Dins del model no supervisat, la màquina no rep dades etiquetades, sinó que haurà d'aprendre els patrons per si mateixa sense saber què és què.
 ---
+# Visualitzar dades
+La visualització de dades és la representació gràfica dinformació i dades complexes. Utilitzant elements com gràfics, mapes i quadres de comandament, transforma dades numèriques en representacions visuals fàcils de processar, cosa que facilita la comprensió ràpida, el descobriment de patrons i la presa de decisions.
+
+**Llibreries més utilitzades**
+
+Matplotlib (Python): És la llibreria de codi obert més utilitzada per crear gràfics estadístics, línies de tendència i visualitzacions 2D/3D interactives a Python. És sol importar amb el submòdul pyplot utilitzant l'àlies plt.
+
+**Exemple**
+```python
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+rng = np.random.RandomState(42)
+x = 10 * rng.rand(50)
+y = 2 * x - 1 + rng.randn(50)
+plt.scatter(x, y);
+```
 # Normalitzar dades
 
 **Que és?** 
