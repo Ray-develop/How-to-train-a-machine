@@ -24,4 +24,4 @@ També s'ha de dir que aquest és un projecte fet per un principiant per a altre
 
 Fes clic al següent enllaç per a veure el contingut principal:
 
-[Anar al tutorial](./Tutorial/tutorial.md)
+[Anar al tutorial](./Tutorial/tutorial.html)
