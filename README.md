@@ -23,5 +23,3 @@ Al repositori es pot trobar també una carpeta nomenada code, en la que hi ha di
 També s'ha de dir que aquest és un projecte fet per un principiant per a altres principiats, pot contenir errors, tant de codi, com d'explicació. Compte amb això.
 
 Fes clic al següent enllaç per a veure el contingut principal:
-
-[Anar al tutorial](./Tutorial/tutorial.html)
