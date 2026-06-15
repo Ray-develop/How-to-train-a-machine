@@ -56,7 +56,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_
 from sklearn.preprocessing import MinMaxScaler
 scaler = MinMaxScaler()
 X_norm_train = scaler.fit_transform(X_train)
-X_norm_test = scaler.fit(X_test)
+X_norm_test = scaler.transform(X_test)
 ```
 **Importar i entrenar l'algoritme:**
 ```python
